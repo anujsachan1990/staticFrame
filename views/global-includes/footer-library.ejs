@@ -1,0 +1,13 @@
+<% if(environment == "dev"){ %>
+<script src="/js/libs/jquery-1.11.2.js"></script>
+<script src="/js/sf.preinit.js"></script>
+<script src="/js/services/sf.utils.js"></script>
+<script src="/js/services/sf.ajaxservice.js"></script>
+<script src="/js/services/sf.validationservice.js"></script>
+<script src="/js/modules/sf.global.js"></script>
+<% } %>
+
+<% if(environment == "prod"){ %>
+<script src="/js/min/sf.libs.min.js"></script>
+<script src="/js/min/sf.custom.min.js"></script>
+<% } %>

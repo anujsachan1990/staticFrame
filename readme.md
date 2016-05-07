@@ -6,7 +6,7 @@ This is a structural framework to get started with, which provide some best prac
 
 ### Features
 1. Provides setup for HTML projects
-2. Some standard css(bootstrap, reset) javascript(jquery) library included.
+2. Some standard css(bootstrap grid, reset) javascript(jquery) library included.
 3. Based on modular approach for javascript
 
 ### Dependencies
@@ -24,7 +24,7 @@ gem install compass
 ```shell
 grunt server
 ```
-Default grunt command will automatically open the browser and now you can access your server files in the browser with http://localhost:3100 . The default port no is set as 3100, which you can modify in your site-config file.
+"grunt server" command will automatically open the browser and now you can access your server files in the browser with http://localhost:3100 . The default port no is set as 3100, which you can modify in your site-config file.
 
 #### Node
 Download and install node in your system
@@ -40,22 +40,18 @@ gem install compass
 Folder structure:
 
 ```shell
-Application             : Keep all public api calls, json/XML files here.
-builds
-    |- build-<build-no> : Autometically generated on grunt command
-node_modules            : Contains node modules. Ignore this.
+builds                  : Autometically generated on grunt command
+node_modules            : Contains node modules. Ignore this folder ( even in your editor preferences) 
 public                  : All Javascript, CSS, images, content-images goes here
     |- css              : folder for generated CSS files
-     |- min             : Minified css to be kept here
-     |- modules         : Module based CSS
-     |- themes          : The theme for the website has to be included here
-     - jshint-reporter.css : Default CSS file for JSHINT Report Generator (views/dev-jshint-report.html)
+        |- min          : Minified css to be kept here
     |- js               : Javascript folder 
-     |- libs         : Put all third party javascripts here( un minified)
-     |- min          : Folder for minified js files
-     - ns.jshint-reporter.js : JS file for JSHINT Report Generator (views/dev-jshint-report.html)
-    |- content-images   : Images that are expected to be author contributable
-    |- images           : All images that are either used in CSS or part of development
+        |- libs         : Put all third party javascripts here( un minified)
+        |- min          : Folder for minified js files
+        |- components   : contains components
+        |- modules      : Add your modules if you really need any page/story specific code
+    |- content-images   : Images that are expected to be author contributable( if you are using any CMS)
+    |- images           : All images that are either used in CSS or system images.
     |- font             : Any custom font
     |- services         : Put all json/xml/html files requested by ajax calls.
 Resources               
@@ -66,7 +62,9 @@ Resources
         |- modules      : CSS for different modules of the website. Sample Provided.
         |- themes       : The theme for the website has to be included here
     |- sprite-source    : sprite psd files
-routes                  : Contains routing of pages. Edit it if required.
+    |- ts               : If you are using typescript, add your code here in the same structure as that of js in public folder
+core
+    |- routes           : Contains routing of pages. Edit it if required.
 views                   : Put your html templates here.
     |-components        : Contains markup for components of website.
         |-global-components : Contains markup for global components of website.
@@ -79,47 +77,18 @@ app.js                  : Node root file to start the server.
 
 ##	Library/Technology used
 1. CSS grid framework           	: Bootstrap 3.3.3
-2. CSS preporocessor			: SCSS
-3. SCSS watcher				: Compass
-4. JS DOM manupulation			: jQuery
-5. JS form validation			: jQuery validator
+2. CSS preporocessor			    : SCSS
+3. SCSS watcher				        : Compass
+4. JS DOM manupulation			    : jQuery
+5. JS form validation			    : jQuery validator
 
 ##	Helpful commands
 
 1. To install new node module		: npm install
-2. Run grunt task			: grunt
-3. compile scss files			: compass watch
+2. Run grunt task			        : grunt
+3. compile scss files			    : compass watch
 4. run the application server		: node app
 5. validate user credentials    	: sudo chown -R $(whoami) ~/.npm
-
-
-##Guidelines
-	
-### Javascript
-Change namespace names for your project in all js files. Currently it's read as "NameSpace".
-
-
-##### Beter coding practices
-1. Try to use "use strict" in your modules where ever possible.
-2. Use jshint to validate your code. You can use the plugins in your Notepad++ or Sublime or Webstorm or Brackets editors
-
-
-#### Implementation of publish - subscribe pattern
-For event decoupling we recommend publish - subscriber pattern. To publish a custom event, use the publish function. Sample code is as below.
-
-```js
-$.publish(NameSpace.events.RESIZE);
-```
-
-And to capture this event:
-```js
-$.subscribe(NameSpace.events.RESIZE, function(evt){
-	//write your function body here
-})
-```
-
-### CSS
-
 
 
 ### Grunt Automation
@@ -139,7 +108,7 @@ $grunt server
 
 Report :: Generate JSHINT Report and open dev-jshint-report.html 
 ```shell
-$grunt report
+$grunt report-js
 ```
 
 Build :: Uglification of Javascript, css minification, jshint error reporting for your dev environment 
@@ -149,7 +118,7 @@ $grunt build
 
 Minification :: Uglification of Javascript and  CSS minification only
 ```shell
-$grunt dev-minify
+$grunt minify
 ```
 
 

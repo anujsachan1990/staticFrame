@@ -10,11 +10,13 @@
     "method-override": "*",
     "errorhandler": "^1.1.1",
     "debug": "~2.0.0",
-    "ejs": "1.0.0"
+    "ejs": "1.0.0",
+    "serve-index" : "1.7.2"
+
   },
   "devDependencies": {
     "grunt": "~0.4.1",
-    "grunt-accessibility": "*",
+    "load-grunt-tasks": "3.4.1",
     "grunt-contrib-clean": "*",
     "grunt-contrib-compass": "*",
     "grunt-contrib-copy": "*",
@@ -26,6 +28,7 @@
     "grunt-express-server": "*",
     "grunt-file-append": "0.0.6",
     "grunt-open": "*",
+    "grunt-ejs": "^0.3.0",
     "jshint-html-reporter": "*",
     "nodemon": "*"
   }

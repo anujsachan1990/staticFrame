@@ -1,0 +1,25 @@
+@charset "utf-8";
+
+//libraries
+@import "libs/staticframe/sf-pre-init";
+@import "libs/staticframe/sf-utils";
+@import "libs/bootstrap/bootstrap";
+
+//insert your theme constants here
+@import "themes/default/fonts";
+@import "themes/default/constants";
+
+//global utilities
+@import "global-partials/sf-base";
+@import "global-partials/sf-mixins";
+@import "global-partials/sf-layouts";
+
+//components
+@import "patterns/atoms/button";
+@import "patterns/atoms/icons";
+
+
+//modules - if your site is small you can include modules in once single file,
+// else you can separate it out to another file
+@import "modules/home-page";
+
